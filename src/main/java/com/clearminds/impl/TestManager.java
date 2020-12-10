@@ -14,10 +14,10 @@ public class TestManager {
 		Persona p = new Persona("Alex", "Mena", 15);
 		String nombreClaseBDD = "com.clearminds.impl.ServicioPersonaBDD";
 		String nombreClaseArcvivo = "com.clearminds.impl.ServicioPersonaArchivos";
-		String nombre=leerPropiedad("clase");
+		
 		PersonaManager pm;
 		try {
-			pm = new PersonaManager(nombre);
+			pm = new PersonaManager();
 			pm.insertarPersona(p);
 		} catch (InstanceException e) {
 
@@ -26,26 +26,5 @@ public class TestManager {
 
 	}
 
-	public static String leerPropiedad(String nombrePropiedad) {
-		Properties p = new Properties();
-		String respuesta = null;
-
-		try {
-
-			p.load(new FileReader("clase.properties"));
-			if (p.getProperty(nombrePropiedad) != null) {
-				respuesta = p.getProperty(nombrePropiedad);
-
-			}
-
-		} catch (Exception e) {
-
-			e.printStackTrace();
-			return null;
-		}
-
-		return respuesta;
-
-	}
-
+	
 }
